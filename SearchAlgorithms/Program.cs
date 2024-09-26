@@ -30,11 +30,12 @@ namespace SearchAlgorithms
 
             if (double.TryParse(Console.ReadLine(), out searchvalue))
             {
-                int index = LinearSearch.Perform(searchvalue, list);
+                //   int index = LinearSearch.Perform(searchvalue, list);
+                int index = BinarySearch.perform(searchvalue, list);
                 if (index < 0) { Console.WriteLine("NOT FOUND"); }
                 else { Console.WriteLine("Found at: " + index); }
              } 
-        }
+        }  
 
         static void populateListwithrandomdoubles(ref List<double> list, int size)
         {
@@ -43,6 +44,7 @@ namespace SearchAlgorithms
                 double twodigitdouble = double.Parse(randomGenerator.NextDouble().ToString("0.00"));
                 list.Add(twodigitdouble);
             }
+            list.Sort() ; printlist(list);
         }
 
         static void printlist(List<double> list)
